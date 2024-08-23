@@ -18,7 +18,7 @@
             <label for="texto-input">Ingrese el texto aquí</label>
             <textarea id="texto-input" class="text-area" placeholder="Ingresa tu texto"></textarea> <!-- Cambiado para usar 'text-area' -->
             <section style="justify-content: center;">
-                <textarea class="mensaje" cols="30" rows="11" id="myOutput" readonly></textarea> <!-- Añadido 'readonly' para que no se edite -->
+                <textarea  class="mensaje" placeholder="Ningún mensaje fue encontrado. Ingresa el texto que desees encriptar o desencriptar" cols="30" rows="11" id="myOutput" readonly></textarea> <!-- Añadido 'readonly' para que no se edite -->
                 <div class="copiar">
                     <button onclick="copyText()">Copiar</button>
                 </div>
@@ -30,7 +30,6 @@
         <div class="illustration">
             <img src="assets/Logo.png" alt="Logo">
         </div>
-        <p class="mensaje">Ningún mensaje fue encontrado. Ingresa el texto que desees encriptar o desencriptar.</p>
         <div class="button-group">
             <button id="encriptar" onclick="btnEncriptar()">Encriptar</button> <!-- Añadida llamada a la función 'btnEncriptar' -->
             <button id="desencriptar" onclick="btnDesencriptar()">Desencriptar</button> <!-- Añadida llamada a la función 'btnDesencriptar' -->

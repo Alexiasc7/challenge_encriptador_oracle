@@ -76,7 +76,7 @@ textarea, .output-text {
 .illustration img {
     width: 30%; 
     height: auto;
-    max-width: 100%; 
+    max-width: 30%; 
     margin: 20px auto;
     display: block;
 }
