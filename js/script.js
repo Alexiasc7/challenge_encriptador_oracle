@@ -48,7 +48,8 @@ function copyText() {
     document.execCommand('copy');
 }
 function clearText() {
-  textArea.value = ''; // Limpia el textArea
+  textArea.value = ''; // Limpia el textarea de entrada
+  mensaje.value = ''; // Limpia el textarea de salida
 }
 
 // Función para limpiar el texto: minúsculas, sin acentos ni signos
