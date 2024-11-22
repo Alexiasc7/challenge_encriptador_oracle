@@ -1,14 +1,20 @@
 {
-  "name": "Encriptador de texto",
-  "short_name": "TextCrip",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#fdfdfd",
-  "theme_color": "#051fa3",
-  "orientation": "portrait-primary",
-  "icons": [
-    {
-      "src": "assets/Logo.png",
-      "type": "image/png", "sizes": "72x72"
-    } ]
+    "name": "Encriptador/Desencriptador",
+    "short_name": "Encriptador",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+        {
+            "src": "assets/Logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/Logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }

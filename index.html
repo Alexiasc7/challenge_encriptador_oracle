@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador/Desencriptador</title>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/script.js"></script> <!-- Corregido: uso de 'defer' para asegurar que el script se cargue después del HTML -->
+    <link rel="manifest" href="manifest.json"> <!-- Manifest añadido -->
+    <script defer src="js/script.js"></script>
 </head>
 <body>
     <header id="header">
@@ -16,9 +17,9 @@
     <div class="container">
         <div class="form-group">
             <label for="texto-input">Ingrese el texto aquí</label>
-            <textarea id="texto-input" class="text-area" placeholder="Ingresa tu texto"></textarea> <!-- Cambiado para usar 'text-area' -->
+            <textarea id="texto-input" class="text-area" placeholder="Ingresa tu texto"></textarea>
             <section style="justify-content: center;">
-                <textarea  class="mensaje" placeholder="Ningún mensaje fue encontrado. Ingresa el texto que desees encriptar o desencriptar" cols="30" rows="11" id="myOutput" readonly></textarea> <!-- Añadido 'readonly' para que no se edite -->
+                <textarea class="mensaje" placeholder="Ningún mensaje fue encontrado. Ingresa el texto que desees encriptar o desencriptar" cols="30" rows="11" id="myOutput" readonly></textarea>
                 <div class="copiar">
                     <button onclick="copyText()">Copiar</button>
                 </div>
@@ -28,17 +29,16 @@
             </section>
         </div>
         <div class="illustration">
-            <img src="assets/Logo.png" alt="Logo">
+            <img src="assets/Logo.png" alt="Logo del encriptador">
         </div>
         <div class="button-group">
-            <button id="encriptar" onclick="btnEncriptar()">Encriptar</button> <!-- Añadida llamada a la función 'btnEncriptar' -->
-            <button id="desencriptar" onclick="btnDesencriptar()">Desencriptar</button> <!-- Añadida llamada a la función 'btnDesencriptar' -->
+            <button id="encriptar" onclick="btnEncriptar()">Encriptar</button>
+            <button id="desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
         </div>
         <p class="nota">Solo letras minúsculas y sin acentos</p>
     </div>
     <footer id="footer">
         <h3>Creado por: Alexia Salas</h3>
     </footer>
-    <script src="js/script.js"></script> <!-- Corregido: ruta del script de JavaScript -->
 </body>
 </html>

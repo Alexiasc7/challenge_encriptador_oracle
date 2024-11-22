@@ -3,6 +3,17 @@ const mensaje = document.querySelector("#myOutput");
 
 let textoOriginal = ''; // Variable para almacenar el texto original encriptado
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+        .then((registration) => {
+            console.log('Service Worker registrado con éxito:', registration);
+        })
+        .catch((error) => {
+            console.log('Error al registrar el Service Worker:', error);
+        });
+}
+
+
 function btnEncriptar() {
     textoOriginal = textArea.value; // Guardamos el texto original antes de encriptar
     const textoEncriptado = encriptar(cleanText(textArea.value));
@@ -64,11 +75,3 @@ textArea.addEventListener('input', function() {
     textArea.value = cleanText(textArea.value);
 });
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function() {
-      navigator.serviceWorker
-        .register("/serviceWorker.js")
-        .then(res => console.log("service worker registered"))
-        .catch(err => console.log("service worker not registered", err))
-    })
-  }
