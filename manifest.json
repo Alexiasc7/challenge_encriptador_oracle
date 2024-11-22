@@ -1,7 +1,7 @@
 {
     "name": "Encriptador/Desencriptador",
     "short_name": "Encriptador",
-    "start_url": "/challenge_encriptador_oracle/",
+    "start_url": "/challenge_encriptador_oracle/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#051fa3",
