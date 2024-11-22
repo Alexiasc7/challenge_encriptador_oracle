@@ -3,15 +3,51 @@ const mensaje = document.querySelector("#myOutput");
 
 let textoOriginal = ''; // Variable para almacenar el texto original encriptado
 
+let deferredPrompt;
+const addBtn = document.getElementById('install-button');  // Asegúrate de que el botón de instalación tenga este ID
+
+// Escuchar el evento 'beforeinstallprompt' para manejar la instalación de la PWA
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevenir que el navegador muestre automáticamente el cuadro de instalación
+  e.preventDefault();
+  
+  // Guardar el evento para que se pueda disparar más tarde
+  deferredPrompt = e;
+
+  // Mostrar el botón de instalación cuando se dispara el evento
+  addBtn.style.display = 'block';
+
+  // Manejar el evento de clic en el botón de instalación
+  addBtn.addEventListener('click', () => {
+    // Mostrar el cuadro de instalación manualmente
+    deferredPrompt.prompt();
+
+    // Esperar la respuesta del usuario
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('El usuario aceptó la instalación de la PWA');
+      } else {
+        console.log('El usuario rechazó la instalación de la PWA');
+      }
+
+      // Restablecer la variable deferredPrompt después de que el usuario haya tomado una decisión
+      deferredPrompt = null;
+      addBtn.style.display = 'none';  // Ocultar el botón después de la interacción
+    });
+  });
+});
+
+// Asegurarse de que el service worker esté registrado correctamente
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-        .then((registration) => {
-            console.log('Service Worker registrado con éxito:', registration);
-        })
-        .catch((error) => {
-            console.log('Error al registrar el Service Worker:', error);
-        });
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(function(registration) {
+      console.log('Service Worker registrado con éxito:', registration);
+    })
+    .catch(function(error) {
+      console.log('Error al registrar el Service Worker:', error);
+    });
 }
+
 
 
 function btnEncriptar() {

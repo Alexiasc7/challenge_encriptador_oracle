@@ -37,9 +37,24 @@
             <button id="desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
         </div>
         <p class="nota">Solo letras minúsculas y sin acentos</p>
+        <!-- Botón de instalación que aparecerá solo cuando se pueda instalar la PWA -->
+<button id="install-button" style="display:none;">Instalar PWA</button>
+
     </div>
     <footer id="footer">
         <h3>Creado por: Alexia Salas</h3>
     </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+              console.log('Service Worker registrado con éxito:', registration);
+            })
+            .catch(function(error) {
+              console.log('Error al registrar el Service Worker:', error);
+            });
+        }
+      </script>
+      
 </body>
 </html>
