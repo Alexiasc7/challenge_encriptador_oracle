@@ -7,14 +7,24 @@
     "theme_color": "#4CAF50",
     "icons": [
         {
-            "src": "assets/Logo-160-192.jpg",
-            "sizes": "160x192",
+            "src": "assets/icon-512-512.png",
+            "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "assets/Logo-427-512.jpg",
-            "sizes": "427x512",
+            "src": "assets/icon-128-128.png",
+            "sizes": "128x128",
             "type": "image/png"
         }
-    ]
+    ],
+    "screenshots": [
+    {
+        "src": "assets/imagen__1.jpg",
+        "sizes": "2000x2000",
+        "type": "image/png",
+        "form_factor": "narrow" 
+    }
+]
 }
+
+
