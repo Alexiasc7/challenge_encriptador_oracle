@@ -1,0 +1,14 @@
+{
+  "name": "Encriptador de texto",
+  "short_name": "TextCrip",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#051fa3",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/Logo.png",
+      "type": "image/png", "sizes": "72x72"
+    } ]
+}
