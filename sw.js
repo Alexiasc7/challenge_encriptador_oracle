@@ -4,8 +4,8 @@ const assetsToCache = [
     './index.html',
     './css/style.css',
     './js/script.js',
-    './assets/Logo-160-192.png',
-    './assets/Logo-427-512.png'
+    './assets/Logo-160-192.jpg',
+    './assets/Logo-427-512.jpg'
 ];
 
 self.addEventListener('install', (event) => {
