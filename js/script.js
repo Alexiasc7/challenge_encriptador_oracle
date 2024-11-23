@@ -76,3 +76,6 @@ textArea.addEventListener('input', function() {
     textArea.value = cleanText(textArea.value);
 });
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js";
+const app = initializeApp(firebaseConfig);
+

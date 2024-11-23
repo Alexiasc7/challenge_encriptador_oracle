@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json"> <!-- Manifest añadido -->
     <script defer src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-messaging.js"></script>
 </head>
 <body>
     <header id="header">
@@ -38,12 +40,10 @@
         </div>
         <p class="nota">Solo letras minúsculas y sin acentos</p>
         <!-- Botón de instalación que aparecerá solo cuando se pueda instalar la PWA -->
-<button id="install-button" style="display:none;">Instalar PWA</button>
-
+        
     </div>
     <footer id="footer">
         <h3>Creado por: Alexia Salas</h3>
     </footer>
-      
 </body>
 </html>
