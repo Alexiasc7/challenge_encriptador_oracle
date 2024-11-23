@@ -76,6 +76,16 @@ textArea.addEventListener('input', function() {
     textArea.value = cleanText(textArea.value);
 });
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAAf_L_eR-CODo0N9xiY271QHQGAesvZbE",
+    authDomain: "encriptador-5349c.firebaseapp.com",
+    projectId: "encriptador-5349c",
+    storageBucket: "encriptador-5349c.firebasestorage.app",
+    messagingSenderId: "777618684108",
+    appId: "1:777618684108:web:d714890611d5bbbdc22a69"
+  };
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js";
 const app = initializeApp(firebaseConfig);
+
 
