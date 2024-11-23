@@ -1,7 +1,7 @@
 {
     "name": "Encriptador/Desencriptador",
     "short_name": "Encriptador",
-    "start_url": "/challenge_encriptador_oracle/index.html",
+    "start_url": "https://alexiasc7.github.io/challenge_encriptador_oracle/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#051fa3",
