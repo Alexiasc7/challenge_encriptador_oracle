@@ -83,7 +83,7 @@ function randomNotification(){
     const randomItem = Math.floor(Math.random() * datos.length);
     const notiTitle= datos[randomItem].name;
     const notiBody=`Created by ${datos[randomItem].author}`;
-    const notiImg= `assets/${datos[randomItem].slug}.png`;
+    const notiImg= `/challenge_encriptador_oracle/assets/${datos[randomItem].slug}.png`;
     const options ={
         body:notiBody,
         icon: notiImg,
@@ -93,12 +93,13 @@ function randomNotification(){
 }
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('Service Worker registrado:', registration);
-      })
-      .catch((error) => {
-        console.error('Error al registrar el Service Worker:', error);
-      });
-  }
+  navigator.serviceWorker.register('/challenge_encriptador_oracle/sw.js') // Ajusta la ruta según tu estructura
+    .then((registration) => {
+      console.log('Service Worker registrado con éxito:', registration);
+    })
+    .catch((error) => {
+      console.error('Error al registrar el Service Worker:', error);
+    });
+}
+
   

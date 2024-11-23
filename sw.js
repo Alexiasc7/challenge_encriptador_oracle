@@ -1,13 +1,14 @@
 const CACHE_NAME = 'encriptador-v1';
 const assetsToCache = [
-    '/',
-    '/index.html',
-    '/css/style.css',
-    '/js/script.js',
-    '/assets/Logo-160-192.jpg',
-    '/assets/Logo-427-512.jpg',
-    '/manifest.json'
+  '/challenge_encriptador_oracle/',
+  '/challenge_encriptador_oracle/index.html',
+  '/challenge_encriptador_oracle/css/style.css',
+  '/challenge_encriptador_oracle/js/script.js',
+  '/challenge_encriptador_oracle/assets/Logo-160-192.jpg',
+  '/challenge_encriptador_oracle/assets/Logo-427-512.jpg',
+  '/challenge_encriptador_oracle/manifest.json'
 ];
+
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
