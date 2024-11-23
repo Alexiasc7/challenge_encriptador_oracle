@@ -1,19 +1,9 @@
+    //"start_url": "https://alexiasc7.github.io/challenge_encriptador_oracle/",
+
 const textArea = document.querySelector(".text-area");
 const mensaje = document.querySelector("#myOutput");
 
-
-// Asegurarse de que el service worker esté registrado correctamente
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(function(registration) {
-      console.log('Service Worker registrado con éxito:', registration);
-    })
-    .catch(function(error) {
-      console.log('Error al registrar el Service Worker:', error);
-    });
-}
-
-
+let textoOriginal = ''; // Variable para almacenar el texto original encriptado
 
 function btnEncriptar() {
     textoOriginal = textArea.value; // Guardamos el texto original antes de encriptar
@@ -76,16 +66,28 @@ textArea.addEventListener('input', function() {
     textArea.value = cleanText(textArea.value);
 });
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAAf_L_eR-CODo0N9xiY271QHQGAesvZbE",
-    authDomain: "encriptador-5349c.firebaseapp.com",
-    projectId: "encriptador-5349c",
-    storageBucket: "encriptador-5349c.firebasestorage.app",
-    messagingSenderId: "777618684108",
-    appId: "1:777618684108:web:d714890611d5bbbdc22a69"
-  };
+const button = document.getElementById("notifications");
+button.addEventListener("click",() => {
+    Notification.requestPermission().then((result) => {
+        if (result === "granted"){
+            randomNotification();
+        }
+    })
+});
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js";
-const app = initializeApp(firebaseConfig);
+const datos = [
+    { name: "NotiCript ¡Hora de Encriptar!", author: "Alex Salas",slug: "icon-128-128" },
+];
 
-
+function randomNotification(){
+    const randomItem = Math.floor(Math.random() * datos.length);
+    const notiTitle= datos[randomItem].name;
+    const notiBody=`Created by ${datos[randomItem].author}`;
+    const notiImg= `assets/${datos[randomItem].slug}.png`;
+    const options ={
+        body:notiBody,
+        icon: notiImg,
+    };
+    new Notification(notiTitle,options);
+    setTimeout(randomNotification,30000);   
+}

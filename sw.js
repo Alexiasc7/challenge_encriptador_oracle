@@ -9,7 +9,6 @@ const assetsToCache = [
     '/manifest.json'
 ];
 
-// Instalación del service worker y almacenamiento en caché
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -18,7 +17,6 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activación del service worker y limpieza de cachés antiguas
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
@@ -34,7 +32,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Manejo de solicitudes: Red como prioridad, con caché como respaldo
+
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request)
@@ -50,3 +48,4 @@ self.addEventListener('fetch', (event) => {
             })
     );
 });
+
