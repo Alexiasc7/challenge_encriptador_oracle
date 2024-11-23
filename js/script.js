@@ -1,5 +1,3 @@
-    //"start_url": "https://alexiasc7.github.io/challenge_encriptador_oracle/",
-
 const textArea = document.querySelector(".text-area");
 const mensaje = document.querySelector("#myOutput");
 
@@ -49,6 +47,7 @@ function copyText() {
     output.select();
     document.execCommand('copy');
 }
+
 function clearText() {
   textArea.value = ''; // Limpia el textarea de entrada
   mensaje.value = ''; // Limpia el textarea de salida
@@ -76,24 +75,33 @@ button.addEventListener("click",() => {
 });
 
 const datos = [
-    { name: "NotiCript ¡Hora de Encriptar!", author: "Alex Salas",slug: "icon-128-128" },
+    { name: "NotiCript ¡Hora de Encriptar!", author: "Alex Salas", slug: "icon-128-128" },
 ];
 
 function randomNotification(){
     const randomItem = Math.floor(Math.random() * datos.length);
-    const notiTitle= datos[randomItem].name;
-    const notiBody=`Created by ${datos[randomItem].author}`;
-    const notiImg= `/challenge_encriptador_oracle/assets/${datos[randomItem].slug}.png`;
-    const options ={
-        body:notiBody,
+    const notiTitle = datos[randomItem].name;
+    const notiBody = `Created by ${datos[randomItem].author}`;
+    const notiImg = `/challenge_encriptador_oracle/assets/${datos[randomItem].slug}.png`;
+
+    const options = {
+        body: notiBody,
         icon: notiImg,
     };
-    new Notification(notiTitle,options);
-    setTimeout(randomNotification,30000);   
+
+    // Enviar la notificación desde el service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.showNotification(notiTitle, options);
+        });
+    }
+
+    setTimeout(randomNotification, 30000);  // Enviar notificaciones cada 30 segundos
 }
 
+// Registrar el Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/challenge_encriptador_oracle/sw.js') // Ajusta la ruta según tu estructura
+  navigator.serviceWorker.register('/challenge_encriptador_oracle/sw.js')
     .then((registration) => {
       console.log('Service Worker registrado con éxito:', registration);
     })
@@ -101,5 +109,3 @@ if ('serviceWorker' in navigator) {
       console.error('Error al registrar el Service Worker:', error);
     });
 }
-
-  

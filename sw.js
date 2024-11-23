@@ -9,7 +9,6 @@ const assetsToCache = [
   '/challenge_encriptador_oracle/manifest.json'
 ];
 
-
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -33,7 +32,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-
+// Manejo de las solicitudes de fetch
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request)
@@ -50,3 +49,16 @@ self.addEventListener('fetch', (event) => {
     );
 });
 
+// Escuchar los eventos de 'push' para las notificaciones
+self.addEventListener('push', (event) => {
+    let notificationData = event.data.json();
+    const options = {
+        body: notificationData.body,
+        icon: notificationData.icon,
+        badge: notificationData.badge,
+    };
+
+    event.waitUntil(
+        self.registration.showNotification(notificationData.title, options)
+    );
+});
